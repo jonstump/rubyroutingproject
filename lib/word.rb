@@ -2,21 +2,25 @@ class Words
   attr_accessor :user_word, :user 
   attr_reader :id
 
-  @@word = {}
+  @@words = {}
   @@total_words = 0
 
   def initialize(attributes)
     @user = attributes.fetch(:user)
-    @word_to_define = attributes.fetch(:user_word)
+    @user_word = attributes.fetch(:user_word)
     @id = attributes.fetch(:id) || @@total_words += 1
   end
 
   def self.all
-    @@word.values
+    @@words.values
+  end
+
+  def ==(compare_words)
+    self.user_word = compare_words.user_word
   end
 
   def save
-    
+    @@words[self.id] = Words.new({:user_word => self.user_word, :user => self.user, :id => self.id})
   end
 
 
