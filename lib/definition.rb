@@ -20,4 +20,8 @@ class Definitions
     self.definition = compare_def.definition
   end
 
+  def save
+    
+  end
+
 end

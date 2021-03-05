@@ -32,6 +32,12 @@ describe '#Definitions' do
     end
   end
 
-
+  describe('#save') do
+    it('will save a user inputted definition') do
+      definition1 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})
+      definition1.save
+      expect(Definitions.all).to(eq([definition1]))
+    end
+  end
 
 end
