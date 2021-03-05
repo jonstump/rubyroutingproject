@@ -37,5 +37,7 @@ class Definitions
     @@definitions.delete(self.definition_id)
   end
 
-  
+  def self.find_by_word(words_id)
+
+  end
 end

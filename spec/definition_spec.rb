@@ -73,6 +73,16 @@ describe '#Definitions' do
     end
   end
 
+  describe('.find_by_word') do
+    it("finds definitions for a word") do
+      word2 = Words.new({:user_word => "ambassador", :user => "Atom", :id => nil})
+      word2.save
+      definition1 = Definitions.new({:definition => "Is a robot bass", :user => "Epsilon", :word_id => word2.id, :definition_id => nil})
+      definition1.save
+      definition2 = Definitions.new({:definition => "Is the individual atoms of a photo", :user => "Atom", :word_id => @word1.id, :definition_id => nil})
+      definition2.save
+      expect(Definitions.find_by_word(word2.id)).to(eq([definition1]))
+    end
+  end
 
-  
 end
