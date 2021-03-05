@@ -36,4 +36,6 @@ class Definitions
   def delete
     @@definitions.delete(self.definition_id)
   end
+
+  
 end

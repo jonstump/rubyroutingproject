@@ -36,4 +36,8 @@ class Words
     @@words.delete(self.id)
   end
 
+  def definitions
+    
+  end
+
 end
