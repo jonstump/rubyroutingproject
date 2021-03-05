@@ -69,17 +69,17 @@ describe '#Words' do
       end
     end
 
-    describe('#definitions') do
-      it("returns a word's defintions") do
-        word1 = Words.new({:user_word => "photon", :user => "Epsilon", :id => nil})
-        word1.save
-        definition1 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => word1.id, :definition_id => nil})
-        definition1.save
-        definition2 = Definitions.new({:definition => "Is the individual atoms of a photo", :user => "Atom", :word_id => word1.id, :definition_id => nil})
-        definition2.save
-        expect(word1.definitions).to(eq([definition1, definition2]))
-      end
-    end
+    # describe('#definitions') do
+    #   it("returns a word's defintions") do
+    #     word1 = Words.new({:user_word => "photon", :user => "Epsilon", :id => nil})
+    #     word1.save
+    #     definition1 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => word1.id, :definition_id => nil})
+    #     definition1.save
+    #     definition2 = Definitions.new({:definition => "Is the individual atoms of a photo", :user => "Atom", :word_id => word1.id, :definition_id => nil})
+    #     definition2.save
+    #     expect(word1.definitions).to(eq([definition1, definition2]))
+    #   end
+    # end
 
 end
 end
