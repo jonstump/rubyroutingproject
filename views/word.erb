@@ -1,0 +1,26 @@
+<h1>Word: <%= @words.user_word %></h1>
+<h2>Entered by: <%= @words.user %></h2>
+
+<h3>Definitions</h3>
+
+  <% if @words.definitions %>
+    <ul>
+      <% @words.definitions.each do |word| %>
+        <li><a href="/words/<%= @word.id %>/definitions/<%= definitions.definition_id %>"><%= definitions.definition %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no defintions entered for this word yet. Why don't you add what it means below?!</p>
+  <% end %>
+
+<h4>Add a Definition:</h4>
+
+<form action="/words/<%= @word.id %>/definitions" method="post">
+  <div class="form-group">
+    <label for="user_name">User Name</label>
+    <input id="user_name" name="user_name" class="form-control" type="text">
+    <label for="definition">Add your definition</label>
+    <textarea rows= "5" id="definition" name="definition" class="form-control" type="text"></textarea>
+  </div>
+  <button type="submit" class="btn">Add Definition</button>
+</form>
