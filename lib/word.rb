@@ -15,6 +15,9 @@ class Words
     @@word.values
   end
 
+  def save
+    
+  end
 
 
 
