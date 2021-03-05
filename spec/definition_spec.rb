@@ -20,4 +20,14 @@ describe '#Definitions' do
     end
   end
 
+  describe('#==') do
+    it('is the same definition if it has the same attributes of another definition') do
+      @word1 = Words.new({:user_word => "photon", :user => "Epsilon", :id => nil})
+      @word1.save
+      definition1 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})
+      definition2 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})
+      expect(definition1).to(eq(definition2))
+    end
+  end
+
 end

@@ -16,4 +16,8 @@ class Definitions
     @@definitions.values
   end
 
+  def ==(compare_def)
+    
+  end
+
 end
