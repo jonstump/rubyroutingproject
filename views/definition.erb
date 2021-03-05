@@ -1,0 +1,22 @@
+<h1>Word: <%= @word.user_word %></h1>
+<h2>Entered by: <%= @word.user %></h2>
+
+<h2>Definition: <%= @definition.definition %></h2>
+
+
+<form action="/words/<%= @definition.word_id %>/definition/<%= @definition.definition_id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name">Update Definition</label>
+  <label for="definition">Edit your defition here:</label>
+  <textarea rows= "5" id="definition" name="definition" class="form-control" type="text"></textarea>
+  <button type="submit">Update Definition</button>
+</form>
+
+<form action="/words/<%= @definition.word_id %>/definition/<%= @definition.definition_id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Definition</button>
+</form>
+
+<a href="/word/<%= @definition.word_id %>">Back to <%= @word.user_word %></a>

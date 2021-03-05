@@ -30,7 +30,9 @@ end
 
 get('/word/:id') do
   @word = Words.find(params[:id].to_i())
+  @definition = Definitions.all
   @words = Words.word_sort
+  # binding.pry
   erb(:word)
 end
 
