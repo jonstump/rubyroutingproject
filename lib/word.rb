@@ -28,5 +28,8 @@ class Words
     @@total_words = 0
   end
 
+  def self.find(id)
+    
+  end
 
 end
