@@ -40,4 +40,15 @@ describe '#Definitions' do
     end
   end
 
+  describe('.clear') do
+    it('will clear all definitions') do
+      definition1 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})
+      definition1.save
+      definition2 = Definitions.new({:definition => "Is the individual atoms of a photo", :user => "Atom", :word_id => @word1.id, :definition_id => nil})
+      definition2.save
+      Definitions.clear
+      expect(Definitions.all).to(eq([]))
+    end
+  end
+
 end

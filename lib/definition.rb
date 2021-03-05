@@ -24,4 +24,8 @@ class Definitions
     @@definitions[self.definition_id] = Definitions.new({:definition => self.definition, :user => self.user, :definition_id => self.definition_id, :word_id => self.word_id})
   end
 
+  def self.clear
+    @@definitions = {}
+    @@definition_id = 0
+  end
 end
