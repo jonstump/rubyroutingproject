@@ -14,4 +14,10 @@ describe '#Definitions' do
     end
   end
 
+  describe('.all') do
+    it("returns an empty array when there are no words") do
+      expect(Definitions.all).to(eq([]))
+    end
+  end
+
 end

@@ -12,5 +12,8 @@ class Definitions
     @definition_id = attributes.fetch(:definition_id) || @@definition_id += 1
   end
 
+  def self.all
+    
+  end
 
 end
