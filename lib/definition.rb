@@ -17,7 +17,7 @@ class Definitions
   end
 
   def ==(compare_def)
-    
+    self.definition = compare_def.definition
   end
 
 end
