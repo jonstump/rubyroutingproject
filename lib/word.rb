@@ -24,7 +24,8 @@ class Words
   end
 
   def self.clear
-    
+    @@words = {}
+    @@total_words = 0
   end
 
 
