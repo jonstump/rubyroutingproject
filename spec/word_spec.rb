@@ -64,7 +64,7 @@ describe '#Words' do
         word2 = Words.new({:user_word => "ambassador", :user => "Atom", :id => nil})
         word2.save
         word1.delete
-        expect(Words.all).to(eq(word2))
+        expect(Words.all).to(eq([word2]))
       end
     end
 
