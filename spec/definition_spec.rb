@@ -7,6 +7,7 @@ describe '#Definitions' do
   
   before(:each) do
     Words.clear
+    Definitions.clear
     @word1 = Words.new({:user_word => "photon", :user => "Epsilon", :id => nil})
     @word1.save
   end
@@ -48,6 +49,16 @@ describe '#Definitions' do
       definition2.save
       Definitions.clear
       expect(Definitions.all).to(eq([]))
+    end
+  end
+
+  describe('.find') do
+    it('find a definition by its id') do
+      definition1 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})
+      definition1.save
+      definition2 = Definitions.new({:definition => "Is the individual atoms of a photo", :user => "Atom", :word_id => @word1.id, :definition_id => nil})
+      definition2.save
+      expect(Definitions.find(definition1.definition_id)).to(eq(definition1))
     end
   end
 

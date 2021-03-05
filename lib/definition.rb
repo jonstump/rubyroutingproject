@@ -28,4 +28,8 @@ class Definitions
     @@definitions = {}
     @@definition_id = 0
   end
+
+  def self.find(definition_id)
+
+  end
 end
