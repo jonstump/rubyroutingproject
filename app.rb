@@ -31,7 +31,6 @@ end
 get('/word/:id') do
   @word = Words.find(params[:id].to_i())
   @words = Words.word_sort
-  binding.pry
   erb(:word)
 end
 
@@ -41,6 +40,11 @@ post('/words/:id/definitions') do
   user = params[:user]
   @definition = Definitions.new({:definition => definition, :user => user, :word_id => @word.id, :definition_id => nil})
   @definition.save()
-  binding.pry
   erb(:word)
+end
+
+get('/words/:id/definitions/:definition_id') do
+  @definition = Definitions.find(params[:definition_id].to_i())
+  @word = Words.find(params[:id].to_i())
+  erb(:definition)
 end
