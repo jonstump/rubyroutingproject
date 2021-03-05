@@ -82,5 +82,15 @@ describe '#Words' do
       end
     end
 
+    describe('.sort') do
+      it('will sort words alphabetically') do
+        word1 = Words.new({:user_word => "zeronium", :user => "Gesicht", :id => nil})
+        word1.save
+        word2 = Words.new({:user_word => "ambassador", :user => "Atom", :id => nil})
+        word2.save
+        expect(Words.word_sort()).to(eq([word2, word1]))
+      end
+    end
+
 end
 end

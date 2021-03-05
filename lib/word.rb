@@ -40,4 +40,8 @@ class Words
     Definitions.find_by_word(self.id)
   end
 
+  def self.word_sort()
+    
+  end
+
 end
