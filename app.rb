@@ -28,8 +28,8 @@ post('/words') do
   erb(:words)
 end
 
-get('/wordss/:id') do
+get('/word/:id') do
   @word = Words.find(params[:id].to_i())
   @words = Words.word_sort
-  erb(:album)
+  erb(:word)
 end

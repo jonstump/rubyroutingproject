@@ -1,12 +1,12 @@
-<h1>Word: <%= @words.user_word %></h1>
-<h2>Entered by: <%= @words.user %></h2>
+<h1>Word: <%= @word.user_word %></h1>
+<h2>Entered by: <%= @word.user %></h2>
 
 <h3>Definitions</h3>
 
-  <% if @words.definitions %>
+  <% if @word.definitions %>
     <ul>
-      <% @words.definitions.each do |word| %>
-        <li><a href="/words/<%= @word.id %>/definitions/<%= definitions.definition_id %>"><%= definitions.definition %></a></li>
+      <% @word.definitions.each do |word| %>
+        <li><a href="/words/<%= @word.id %>/definitions/<%= @definitions.definition_id %>"><%= @definitions.definition %></a></li>
       <% end %>
     </ul>
   <% else %>
