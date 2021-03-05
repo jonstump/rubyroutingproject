@@ -21,7 +21,7 @@ class Definitions
   end
 
   def save
-    
+    @@definitions[self.definition_id] = Definitions.new({:definition => self.definition, :user => self.user, :definition_id => self.definition_id, :word_id => self.word_id})
   end
 
 end
