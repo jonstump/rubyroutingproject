@@ -41,7 +41,7 @@ class Words
   end
 
   def self.word_sort()
-    
+    @@words.values.sort_by { |word| [word.user_word]}
   end
 
 end
