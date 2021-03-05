@@ -31,5 +31,16 @@ end
 get('/word/:id') do
   @word = Words.find(params[:id].to_i())
   @words = Words.word_sort
+  binding.pry
+  erb(:word)
+end
+
+post('/words/:id/definitions') do
+  @word = Words.find(params[:id].to_i())
+  definition = params[:definition]
+  user = params[:user]
+  @definition = Definitions.new({:definition => definition, :user => user, :word_id => @word.id, :definition_id => nil})
+  @definition.save()
+  binding.pry
   erb(:word)
 end
