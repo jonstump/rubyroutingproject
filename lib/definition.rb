@@ -38,6 +38,12 @@ class Definitions
   end
 
   def self.find_by_word(words_id)
-
+    definitions = []
+    @@definitions.values.each do |definition|
+      if definition.word_id == words_id
+        definitions << definition
+      end
+    end
+    definitions
   end
 end
