@@ -31,3 +31,14 @@ describe('#save') do
     expect(Words.all).to(eq([word1, word2]))
   end
 end
+
+describe('.clear') do
+  it('will clear all words') do
+    word1 = Words.new({:user_word => "zeronium", :user => "Gesicht", :id => nil})
+    word1.save
+    word2 = Words.new({:user_word => "ambassador", :user => "Atom", :id => nil})
+    word2.save
+    Words.clear
+    expect(Words.all).to(eq([]))
+  end
+end

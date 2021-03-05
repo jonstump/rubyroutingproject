@@ -23,7 +23,9 @@ class Words
     @@words[self.id] = Words.new({:user_word => self.user_word, :user => self.user, :id => self.id})
   end
 
-
+  def self.clear
+    
+  end
 
 
 end
