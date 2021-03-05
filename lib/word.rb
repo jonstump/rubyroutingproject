@@ -32,4 +32,8 @@ class Words
     @@words[id]
   end
 
+  def delete
+    
+  end
+
 end

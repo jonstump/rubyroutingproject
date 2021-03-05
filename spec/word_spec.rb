@@ -57,6 +57,17 @@ describe '#Words' do
       end
     end
 
+    describe('#delete') do
+      it('deletes a word by its id') do
+        word1 = Words.new({:user_word => "zeronium", :user => "Gesicht", :id => nil})
+        word1.save
+        word2 = Words.new({:user_word => "ambassador", :user => "Atom", :id => nil})
+        word2.save
+        word1.delete
+        expect(Words.all).to(eq(word2))
+      end
+    end
+
 
 end
 end
