@@ -17,7 +17,7 @@ class Definitions
   end
 
   def ==(compare_def)
-    self.definition = compare_def.definition
+    (self.definition() == compare_def.definition()) && (self.word_id() == compare_def.word_id())
   end
 
   def save

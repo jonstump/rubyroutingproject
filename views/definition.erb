@@ -1,10 +1,10 @@
 <h1>Word: <%= @word.user_word %></h1>
 <h2>Entered by: <%= @word.user %></h2>
 
-<h2>Definition: <%= @definition.definition %></h2>
+<h2>Definition: <%= definition.definition %></h2>
 
 
-<form action="/words/<%= @definition.word_id %>/definition/<%= @definition.definition_id %>" method="post">
+<form action="/words/<%= definition.word_id %>/definition/<%= @definition.definition_id %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
   <label for="name">Update Definition</label>
