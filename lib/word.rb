@@ -12,7 +12,7 @@ class Words
   end
 
   def self.all
-    nil
+    @@word.values
   end
 
 
