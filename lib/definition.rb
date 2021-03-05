@@ -34,6 +34,6 @@ class Definitions
   end
 
   def delete
-    
+    @@definitions.delete(self.definition_id)
   end
 end
