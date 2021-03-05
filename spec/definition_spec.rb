@@ -62,4 +62,15 @@ describe '#Definitions' do
     end
   end
 
+  describe('#delete') do
+    it('deletes a definition by its id') do
+      definition1 = Definitions.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})
+      definition1.save
+      definition2 = Definitions.new({:definition => "Is the individual atoms of a photo", :user => "Atom", :word_id => @word1.id, :definition_id => nil})
+      definition2.save
+      definition1.delete
+      expect(Definitions.all).to(eq([definition2]))
+    end
+  end
+
 end

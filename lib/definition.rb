@@ -30,6 +30,10 @@ class Definitions
   end
 
   def self.find(definition_id)
+    @@definitions[definition_id]
+  end
 
+  def delete
+    
   end
 end
