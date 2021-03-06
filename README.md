@@ -121,6 +121,7 @@ This will launch a local host via Sinatra. You should be able to navigate to htt
 * Once a definition is added you cannot navigate back to the word page to see the word or list of definitions.
 * When definitions don't throw an error they show in an empty list that has no clickable links
 X Look into Bundle Install issue that throws an error installing dependency racc 1.5.2
+X Look into issue where Capybara testing throws hundreds of errors.
 
 * * *
 
