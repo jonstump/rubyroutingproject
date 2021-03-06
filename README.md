@@ -7,6 +7,8 @@
 ## Description
 This is a website that allows for users to enter words and the definitions that they believe go with those words.
 
+You can view a working version of the page [here]()
+
 * * *
 
 ## Technologies used
@@ -16,6 +18,7 @@ This is a website that allows for users to enter words and the definitions that 
 * Capybara
 * Heroku
 * Sinatra
+* Heroku
 * C8H10N4O2
 
 * * *
@@ -24,10 +27,10 @@ This is a website that allows for users to enter words and the definitions that 
 Initial Specs:
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
-| spec  | input | output |
-| spec  | input | output |
-| spec  | input | output |
-| spec  | input | output |
+| Should allow a user to input a word with their username  | word: Duck, username: Donald | word Duck in a clickable list of words. |
+| Should allow a user to input a definition to a word with their username | Def: "a water fowl", username: Donald | Definitions in a clickable list |
+| Allow for a definition to be updated  | Updated definition: "My last name" | "a water fowl" will be replaced with "My last name" |
+| Ability to delete a definition  | click Delete on the definition page | This removes the definition from the list on the word page |
 
 * * *
 
@@ -99,9 +102,33 @@ bundle install
 code .
 ```
 
+* To launch a local version of the site in your browser enter the following:
 
-## Addition comments:
+``` bash
+ruby app.rb
+```
+This will launch a local host via Sinatra. You should be able to navigate to http://localhost:4567/ to see the site locally.
 
+## To dos:
+* Fix bugs
+* Style website to give it some character
+* Add Update and Delete functionality for full CRUD to user interface
+* Add integration testing
+* Deploy to Heroku
+
+## Bugs:
+* Adding a definition throws a "undefined method error"
+* Once a definition is added you cannot navigate back to the word page to see the word or list of definitions.
+* When definitions don't throw an error they show in an empty list that has no clickable links
+* Look into Bundle Install issue that throws an error installing dependency racc 1.5.2
+``` bash
+current directory: /tmp/bundler20210305-569668-yb9yw4racc-1.5.2/gems/racc-1.5.2/ext/racc/cparse
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20210305-569668-bl0fjw.rb extconf.rb
+mkmf.rb cant find header files for ruby at /usr/lib/ruby/include/ruby.h
+
+You might have to install separate package for the ruby development
+environment, ruby-dev or ruby-devel for example.
+```
 
 * * *
 
