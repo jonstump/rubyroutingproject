@@ -120,15 +120,7 @@ This will launch a local host via Sinatra. You should be able to navigate to htt
 * Adding a definition throws a "undefined method error"
 * Once a definition is added you cannot navigate back to the word page to see the word or list of definitions.
 * When definitions don't throw an error they show in an empty list that has no clickable links
-* Look into Bundle Install issue that throws an error installing dependency racc 1.5.2
-``` bash
-current directory: /tmp/bundler20210305-569668-yb9yw4racc-1.5.2/gems/racc-1.5.2/ext/racc/cparse
-/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20210305-569668-bl0fjw.rb extconf.rb
-mkmf.rb cant find header files for ruby at /usr/lib/ruby/include/ruby.h
-
-You might have to install separate package for the ruby development
-environment, ruby-dev or ruby-devel for example.
-```
+X Look into Bundle Install issue that throws an error installing dependency racc 1.5.2
 
 * * *
 
