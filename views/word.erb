@@ -1,8 +1,9 @@
+<%# This is the word page. It shows the word and who entered it. The page will also show a list of definitions entered for the word. %>
 <h1>Word: <%= @word.user_word %></h1>
 <h2>Entered by: <%= @word.user %></h2>
 
 <h3>Definitions</h3>
-
+<%# This should pull all definitions for a word. This is currently broken. It errors on definition as being a null class %>
   <% if @word.definitions %>
     <ul>
       <% @word.definitions.each do |word| %>
@@ -13,6 +14,7 @@
     <p>There are no defintions entered for this word yet. Why don't you add what it means below?!</p>
   <% end %>
 
+<%# This is the form for adding a definition to a word. This works while on the page, but breaks when navigating away %>
 <h4>Add a Definition:</h4>
 <form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
