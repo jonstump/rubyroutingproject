@@ -14,7 +14,7 @@
   <button type="submit">Update Definition</button>
 </form>
 
-<%# Button for deleting definitions. Currently non-functional %>
+<%# Button for deleting definitions. Currently non-functional as it needs the delete funtion added to app.rb %>
 <form action="/words/<%= @definition.word_id %>/definition/<%= @definition.definition_id %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
