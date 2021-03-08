@@ -1,11 +1,9 @@
 <%# Shows the word and the user who entered it %>
-<h1>Word: <%= @word.user_word %></h1>
-<h2>Entered by: <%= @word.user %></h2>
-
-<h2>Definition: <%= @definition.definition %></h2>
+<h2>Definition: <%= @definitions.definition %></h2>
+<h2>Word: <%= @definitions.definition %></h2>
 
 <%# Form for entering a defintion and posting it. %>
-<form action="/words/<%= definition.word_id %>/definition/<%= @definition.definition_id %>" method="post">
+<form action="/words/<%= @definitions.word_id %>/definition/<%= @definitions.definition_id %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
   <label for="name">Update Definition</label>
@@ -15,10 +13,9 @@
 </form>
 
 <%# Button for deleting definitions. Currently non-functional as it needs the delete funtion added to app.rb %>
-<form action="/words/<%= @definition.word_id %>/definition/<%= @definition.definition_id %>" method="post">
+<form action="/words/<%= @definitions.word_id %>/definition/<%= @definitions.definition_id %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type="submit">Delete Definition</button>
 </form>
 
-<a href="/word/<%= @definition.word_id %>">Back to <%= @word.user_word %></a>

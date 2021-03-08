@@ -36,26 +36,22 @@ end
 get('/word/:id') do
   @word = Words.find(params[:id].to_i())
   @words = Words.word_sort
-  definition = Definitions.find(params[:definition_id].to_i())
-  binding.pry
+  # binding.pry
   erb(:word)
+end
+
+#get for definitions. Pulls by word id and definition id params
+get('/words/:id/definitions/:definition_id') do
+  @definitions = Definitions.find(params[:definition_id].to_i())
+  binding.pry
+  erb(:definition)
 end
 
 #post for definitions of a word. uses params for word id, user, and definition to add to defintions
 post('/words/:id/definitions') do
   @word = Words.find(params[:id].to_i())
-  @definition = Definitions.find(params[:definition_id].to_i())
-  definition = params[:definition]
-  user = params[:user]
-  definition = Definitions.new({:definition => definition, :user => user, :word_id => @word.id, :definition_id => nil})
-  definition.save()
+  @definitions = Definitions.new({:user => params[:user], :definition => params[:definition], :word_id => @word.id, :definition_id => nil})
+  @definitions.save()
   binding.pry
-  erb(:definition)
-end
-
-#get for definitions. Pulls by word id and definition id params
-get('/words/:id/definitions/:definition_id') do
-  @definition = Definitions.find(params[:definition_id].to_i())
-  @word = Words.find(params[:id].to_i())
-  erb(:definition)
+  erb(:word)
 end
