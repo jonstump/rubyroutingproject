@@ -29,7 +29,6 @@ post('/words') do
   word = Word.new({:user_word => user_word, :user => user, :id => nil})
   word.save()
   @words = Word.word_sort
-  binding.pry
   erb(:words)
 end
 
@@ -39,7 +38,6 @@ get('/word/:id') do
   @definition = Definition.find_by_word(params[:id].to_i())
   @words = Word.word_sort
   @definition = Definition.all
-  binding.pry
   erb(:word)
 end
 
@@ -47,7 +45,6 @@ end
 get('/words/:id/definitions/:definition_id') do
   @definition = Definition.find(params[:definition_id].to_i())
   @words = Word.word_sort
-  binding.pry
   erb(:definition)
 end
 
@@ -57,6 +54,5 @@ post('/words/:id/definitions') do
   definition = Definition.new({:user => params[:user], :definition => params[:definition], :word_id => @word.id, :definition_id => nil})
   definition.save()
   @definition = Definition.all
-  binding.pry
   erb(:word)
 end
