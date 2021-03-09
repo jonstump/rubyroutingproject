@@ -39,6 +39,11 @@ class Word
     @@words[id]
   end
 
+  #updates a word based on id
+  def update()
+
+  end
+
   #deletes a word based on id
   def delete
     @@words.delete(self.id)

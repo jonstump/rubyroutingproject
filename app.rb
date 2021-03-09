@@ -41,6 +41,22 @@ get('/word/:id') do
   erb(:word)
 end
 
+#Update ability on words
+patch('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.update(stuff to enter)
+  @words = Word.word_sort
+  erb(:words)
+end
+
+#allows for a word to be deleted
+delete('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
+  @words = Word.word_sort
+  erb(:words)
+end
+
 #get for definitions. Pulls by word id and definition id params
 get('/words/:id/definitions/:definition_id') do
   @definition = Definition.find(params[:definition_id].to_i())
