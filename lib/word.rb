@@ -1,4 +1,4 @@
-class Words
+class Word
   attr_accessor :user_word, :user 
   attr_reader :id
 
@@ -25,7 +25,7 @@ class Words
 
   #saves the words based on an id
   def save
-    @@words[self.id] = Words.new({:user_word => self.user_word, :user => self.user, :id => self.id})
+    @@words[self.id] = Word.new({:user_word => self.user_word, :user => self.user, :id => self.id})
   end
 
   #clears the word hash of all values
@@ -46,7 +46,7 @@ class Words
 
   #finds defintions created by the definition class by word id
   def definitions
-    Definitions.find_by_word(self.id)
+    Definition.find_by_word(self.id)
   end
 
   #sords words alphabetically

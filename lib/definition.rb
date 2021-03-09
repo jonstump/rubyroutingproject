@@ -1,4 +1,4 @@
-class Definitions
+class Definition
   attr_reader :definition_id
   attr_accessor :definition, :word_id, :user
 
@@ -26,7 +26,7 @@ class Definitions
 
   #saves a definition in the definitions hash
   def save
-    @@definitions[self.definition_id] = Definitions.new({:definition => self.definition, :user => self.user, :definition_id => self.definition_id, :word_id => self.word_id})
+    @@definitions[self.definition_id] = Definition.new({:definition => self.definition, :user => self.user, :definition_id => self.definition_id, :word_id => self.word_id})
   end
 
   #clears the definitions hash of all values and resets the id counter
@@ -43,6 +43,10 @@ class Definitions
   #deletes a definition by the id
   def delete
     @@definitions.delete(self.definition_id)
+  end
+
+  def word
+    Word.find(self.word_id)
   end
 
   #finds definitions by the wrods id and puts all of them into a new array. 

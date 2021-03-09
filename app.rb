@@ -7,13 +7,13 @@ also_reload('lib/**/*.rb')
 
 # route for the main page
 get ('/') do
-  @words = Words.word_sort
+  @words = Word.word_sort
   erb(:words)
 end
 
 # rout for the main page (duplicate of above)
 get ('/words') do
-  @words = Words.word_sort
+  @words = Word.word_sort
   erb(:words)
 end
 
@@ -26,32 +26,37 @@ end
 post('/words') do
   user = params[:user]
   user_word = params[:word]
-  word = Words.new({:user_word => user_word, :user => user, :id => nil})
+  word = Word.new({:user_word => user_word, :user => user, :id => nil})
   word.save()
-  @words = Words.word_sort
+  @words = Word.word_sort
+  binding.pry
   erb(:words)
 end
 
 #get for individual words page. Also pulls definitions entered by user if any exist
 get('/word/:id') do
-  @word = Words.find(params[:id].to_i())
-  @words = Words.word_sort
-  # binding.pry
+  @word = Word.find(params[:id].to_i())
+  @definition = Definition.find_by_word(params[:id].to_i())
+  @words = Word.word_sort
+  @definition = Definition.all
+  binding.pry
   erb(:word)
 end
 
 #get for definitions. Pulls by word id and definition id params
 get('/words/:id/definitions/:definition_id') do
-  @definitions = Definitions.find(params[:definition_id].to_i())
+  @definition = Definition.find(params[:definition_id].to_i())
+  @words = Word.word_sort
   binding.pry
   erb(:definition)
 end
 
 #post for definitions of a word. uses params for word id, user, and definition to add to defintions
 post('/words/:id/definitions') do
-  @word = Words.find(params[:id].to_i())
-  @definitions = Definitions.new({:user => params[:user], :definition => params[:definition], :word_id => @word.id, :definition_id => nil})
-  @definitions.save()
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.new({:user => params[:user], :definition => params[:definition], :word_id => @word.id, :definition_id => nil})
+  definition.save()
+  @definition = Definition.all
   binding.pry
   erb(:word)
 end
