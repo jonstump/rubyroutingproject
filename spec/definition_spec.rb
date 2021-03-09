@@ -62,6 +62,16 @@ describe '#Definition' do
     end
   end
 
+  describe('#update') do
+    it('updates a definition by id') do
+      definition1 = Definition.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})
+      definition1.save
+      definition1.update({:definition => "The individual atoms of a photograph"})
+      binding.pry
+      expect(definition1.definition).to(eq("The individual atoms of a photograph"))
+    end
+  end
+
   describe('#delete') do
     it('deletes a definition by its id') do
       definition1 = Definition.new({:definition => "Is a sciencey thing", :user => "Epsilon", :word_id => @word1.id, :definition_id => nil})

@@ -8,10 +8,10 @@ class Definition
 
   #instantiates a definitions hash
   def initialize(attributes)
-    @user = attributes.fetch(:user)
-    @definition = attributes.fetch(:definition)
-    @word_id = attributes.fetch(:word_id)
-    @definition_id = attributes.fetch(:definition_id) || @@definition_id += 1
+    @user = attributes[:user]
+    @definition = attributes[:definition]
+    @word_id = attributes[:word_id]
+    @definition_id = attributes[:definition_id] || @@definition_id += 1
   end
 
   #finds all values in definitions
@@ -38,6 +38,10 @@ class Definition
   #finds a definition by the id
   def self.find(definition_id)
     @@definitions[definition_id]
+  end
+
+  def update(attr)
+
   end
 
   #deletes a definition by the id
