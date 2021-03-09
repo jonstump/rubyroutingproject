@@ -41,7 +41,9 @@ class Definition
   end
 
   def update(attr)
-
+    user = attr.fetch(:user)
+    definition = attr.fetch(:definition)
+    @@definitions[self.definition_id] = Definition.new({:definition => definition, :user => user, :definition_id => self.definition_id, :word_id => self.word_id})
   end
 
   #deletes a definition by the id
