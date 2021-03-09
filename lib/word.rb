@@ -8,9 +8,9 @@ class Word
 
   # Instantiates a word hash
   def initialize(attributes)
-    @user = attributes.fetch(:user)
-    @user_word = attributes.fetch(:user_word)
-    @id = attributes.fetch(:id) || @@total_words += 1
+    @user = attributes[:user]
+    @user_word = attributes[:user_word]
+    @id = attributes[:id] || @@total_words += 1
   end
 
   #brings up all values in the word hash
@@ -40,8 +40,10 @@ class Word
   end
 
   #updates a word based on id
-  def update()
-
+  def update(attr)
+    user = attr.fetch(:user)
+    user_word = attr.fetch(:user_word)
+    @@words[self.id] = Word.new({:user_word => user_word, :user => user, :id => self.id})
   end
 
   #deletes a word based on id

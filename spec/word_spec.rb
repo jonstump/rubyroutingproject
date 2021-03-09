@@ -63,8 +63,8 @@ describe '#Word' do
       it("updates a word by id") do
         word1 = Word.new({:user_word => "zeronium", :user => "Gesicht", :id => nil})
         word1.save
-        word1.update({:user_word => "photon", :user => "atom"})
-        expect(word.user_word).to(eq("photon"))
+        word1.update({:user_word => "ambassador", :user => "Atom"})
+        expect(Word.all).to(eq([word1]))
       end
     end
 
