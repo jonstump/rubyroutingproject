@@ -7,7 +7,7 @@
 ## Description
 This is a website that allows for users to enter words and the definitions that they believe go with those words.
 
-You can view a working version of the page [here](https://ancient-atoll-06147.herokuapp.com/words/new)
+You can view a working version of the page [here](https://ancient-atoll-06147.herokuapp.com/words)
 
 * * *
 
