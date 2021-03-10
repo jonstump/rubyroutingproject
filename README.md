@@ -7,7 +7,7 @@
 ## Description
 This is a website that allows for users to enter words and the definitions that they believe go with those words.
 
-You can view a working version of the page [here]()
+You can view a working version of the page [here](https://ancient-atoll-06147.herokuapp.com/words/new)
 
 * * *
 
@@ -110,18 +110,10 @@ ruby app.rb
 This will launch a local host via Sinatra. You should be able to navigate to http://localhost:4567/ to see the site locally.
 
 ## To dos:
-* Fix bugs
-* Style website to give it some character
-* Add Update and Delete functionality for full CRUD to user interface
-* Add integration testing
 * Deploy to Heroku
 
 ## Bugs:
-* Adding a definition throws a "undefined method error"
-* Once a definition is added you cannot navigate back to the word page to see the word or list of definitions.
-* When definitions don't throw an error they show in an empty list that has no clickable links
-X Look into Bundle Install issue that throws an error installing dependency racc 1.5.2
-X Look into issue where Capybara testing throws hundreds of errors.
+* No known bugs. Please submit any bugs found to the email below
 
 * * *
 
