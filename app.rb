@@ -5,13 +5,13 @@ require('./lib/definition')
 require('pry')
 also_reload('lib/**/*.rb')
 
-# route for the main page
+#route for the main page
 get ('/') do
   @words = Word.word_sort
   erb(:words)
 end
 
-# rout for the main page (duplicate of above)
+#route for the main page (duplicate of above)
 get ('/words') do
   @words = Word.word_sort
   erb(:words)
@@ -80,22 +80,21 @@ post('/words/:id/definitions') do
   erb(:word)
 end
 
+#updates defintions
 patch('/words/:id/definitions/:definition_id') do
   @word = Word.find(params[:id].to_i())
   user_def = Definition.find(params[:definition_id].to_i)
-  user_def.update({:definition => params[:defintion], :user => params[:user]})
+  user_def.update({:definition => params[:definition], :user => params[:user]})
   @user_def = Definition.find_by_word(params[:id].to_i)
   @word = Word.find(params[:id].to_i())
-  redirect('/word/:id')
-  @word = Word.all
+  erb(:word)
 end
 
 #allows for a word to be deleted
 delete('/words/:id/definitions/:definition_id') do
   user_def = Definition.find(params[:definition_id].to_i)
   user_def.delete
-  @word = Word.find(params[:id].to_i())
   @user_def = Definition.find_by_word(params[:id].to_i)
-  @word = Word.all
-  redirect('/word/:id')
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
 end
