@@ -1,5 +1,5 @@
 class Word
-  attr_accessor :user_word, :user 
+  attr_accessor :user_word, :user
   attr_reader :id
 
   #create an empty hash for words and a counter for ID numbers

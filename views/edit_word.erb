@@ -1,0 +1,19 @@
+<%# Shows the word and the user who entered it %>
+<h2>Word: <%= @word.user_word %></h2>
+
+<%# Form for entering a defintion and posting it. %>
+<form action="/words/<%= @word.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name">Update Word</label>
+  <label for="definition">Edit your word here:</label>
+  <textarea rows= "5" id="definition" name="word" class="form-control" type="text"></textarea>
+  <button type="submit">Update Word</button>
+</form>
+
+<%# Button for deleting definitions. Currently non-functional as it needs the delete funtion added to app.rb %>
+<form action="/words/<%= @word.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Word</button>
+</form>

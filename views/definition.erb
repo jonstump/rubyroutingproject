@@ -1,6 +1,6 @@
 <%# Shows the word and the user who entered it %>
 <h2>Definition: <%= @definition.definition %></h2>
-<h2>Word: <%= @definition.definition %></h2>
+<h2>Word: <%= @word.user_word %></h2>
 
 <%# Form for entering a defintion and posting it. %>
 <form action="/words/<%= @definition.word_id %>/definitions/<%= @definition.definition_id %>" method="post">

@@ -6,7 +6,7 @@
 <%# This should pull all definitions for a word. This is currently broken. It errors on definition as being a null class %>
   <% if @word.definitions %>
     <ul>
-      <% @definition.each do |definition| %>
+      <% @user_def.each do |definition| %>
         <li><a href="/words/<%= @word.id %>/definitions/<%= definition.definition_id %>"><%= definition.definition %></a></li>
       <% end %>
     </ul>
@@ -25,3 +25,5 @@
   </div>
   <button type="submit" class="btn">Add Definition</button>
 </form>
+
+<a href="/words/ <%= @word.id %>/edit">Edit Word</a>
