@@ -4,7 +4,7 @@ require('rspec')
 require('pry')
 
 describe '#Definition' do
-  
+
   before(:each) do
     Word.clear
     Definition.clear

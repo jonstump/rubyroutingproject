@@ -35,16 +35,22 @@ end
 #get for individual words page. Also pulls definitions entered by user if any exist
 get('/word/:id') do
   @word = Word.find(params[:id].to_i())
-  @definition = Definition.find_by_word(params[:id].to_i())
+  @definition = Definition.find_by_word(params[:id].to_i)
   @words = Word.word_sort
   @definition = Definition.all
   erb(:word)
 end
 
+#page to edit words
+get('/words/:id/edit') do
+  @word = Word.find(params[:id].to())
+  erb(:edit_word)
+end
+
 #Update ability on words
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.update(stuff to enter)
+  @word.update({:user_word => params[:user_word], :user => params[:user], :id => @word.id})
   @words = Word.word_sort
   erb(:words)
 end
@@ -52,10 +58,12 @@ end
 #allows for a word to be deleted
 delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.delete()
+  @word.delete(@word.id)
   @words = Word.word_sort
   erb(:words)
 end
+
+# Definitions--------------
 
 #get for definitions. Pulls by word id and definition id params
 get('/words/:id/definitions/:definition_id') do
@@ -70,5 +78,21 @@ post('/words/:id/definitions') do
   definition = Definition.new({:user => params[:user], :definition => params[:definition], :word_id => @word.id, :definition_id => nil})
   definition.save()
   @definition = Definition.all
+  erb(:word)
+end
+
+patch('/words/:id/definitions/:definition_id') do
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.find(params[:definition_id].to_i)
+  definition.update({:definition => params[:defintion], :user => params[:user]})
+  erb(:word)
+end
+
+#allows for a word to be deleted
+delete('/words/:id/definitions/:definition_id') do
+  @definition = Definition.find(params[:definition_id].to_i)
+  @definition.delete
+  @word = Word.find(params[:id].to_i())
+  @words.all
   erb(:word)
 end
